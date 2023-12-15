@@ -32,7 +32,6 @@ const page = () => {
               </li>
               <li>
                 <a>Service</a>
-                
               </li>
               <li>
                 <a>About Us</a>
@@ -47,10 +46,7 @@ const page = () => {
               <a>Home</a>
             </li>
             <li>
-             
-                <a>Service</a>
-                
-              
+              <a>Service</a>
             </li>
             <li>
               <a>About Us</a>
@@ -58,7 +54,9 @@ const page = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href="/login" className="btn">Login</Link>
+          <Link href="/login" className="btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>
