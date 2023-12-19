@@ -1,25 +1,23 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const ServicesPage = () => {
   return (
     <div>
-        <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          
-         
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body">
-            <h1 className='text-center text-lg font-bold'>
-            Diabetes Prediction Form
-          </h1>
-          <div className="form-control">
+              <h1 className="text-center text-lg font-bold">
+                Diabetes Prediction Form
+              </h1>
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Pregnancis</span>
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="Pregnancis"
                   className="input input-bordered"
                   required
                 />
@@ -31,7 +29,7 @@ const ServicesPage = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="Glucose"
                   className="input input-bordered"
                   required
                 />
@@ -42,13 +40,11 @@ const ServicesPage = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="Blood Pressure"
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  
-                </label>
+                <label className="label"></label>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -56,7 +52,7 @@ const ServicesPage = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="Skin Thickness"
                   className="input input-bordered"
                   required
                 />
@@ -78,7 +74,7 @@ const ServicesPage = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="BMI"
                   className="input input-bordered"
                   required
                 />
@@ -100,7 +96,7 @@ const ServicesPage = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="number"
+                  placeholder="Age"
                   className="input input-bordered"
                   required
                 />
