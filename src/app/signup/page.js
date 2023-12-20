@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { callFetcher } from '../helper/fetcher';
 
 const SignupPage = () => {
 
@@ -24,14 +25,7 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
+      const response = await callFetcher('user', 'post', formData);
       if (response.ok) {
         // Show SweetAlert for success
         Swal.fire({

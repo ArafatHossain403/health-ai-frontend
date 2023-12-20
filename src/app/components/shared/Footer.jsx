@@ -1,9 +1,9 @@
 import React from 'react';
 
-const page = () => {
-  return (
-    <div>
-      <footer className="footer p-10 bg-base-300 text-base-content">
+const Footer = () => {
+    return (
+        <div>
+            <footer className="footer p-10 bg-base-300 text-base-content">
       <aside>
       <img src="/ai-logo-svg.svg" alt="Girl in a jacket" width="50" height="60"></img>
     <p>Transforming healthcare through<br/>intelligent innovation.</p>
@@ -32,8 +32,9 @@ const page = () => {
     </div>
   </nav>
 </footer>
-    </div>
-  );
+            
+        </div>
+    );
 };
 
-export default page;
+export default Footer;
