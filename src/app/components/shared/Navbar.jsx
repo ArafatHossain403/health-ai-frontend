@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const Navbar = () => {
-    return (
-        <div>
-             <div className="navbar bg-base-100">
+  return (
+    <div>
+      <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,13 +28,13 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <a href="#">Home</a>
               </li>
               <li>
-                <a>Service</a>
+                <Link href="/services">Service</Link>
               </li>
               <li>
-                <a>About Us</a>
+                <Link href="/aboutus">About Us</Link>
               </li>
             </ul>
           </div>
@@ -43,13 +43,13 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link href="#">Home</Link>
             </li>
             <li>
-              <a>Service</a>
+              <Link href="/services">Service</Link>
             </li>
             <li>
-              <a>About Us</a>
+              <Link href="/aboutus">About Us</Link>
             </li>
           </ul>
         </div>
@@ -59,9 +59,8 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-            
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Navbar;
