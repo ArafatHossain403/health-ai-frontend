@@ -1,7 +1,44 @@
+'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import { callFetcher } from '../helper/fetcher';
+import { useRouter } from 'next/navigation';
+
+
 
 const LoginPage = () => {
+
+  const router = useRouter();
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleLogin = async () => {
+    // Call the API to authenticate login
+    try {
+      const response = await callFetcher('login', 'POST', loginData);
+      if (response.ok) {
+        console.log('Login successful!');
+        // Redirect to dashboard or other authenticated pages
+        router.push('/userDashboard');
+      } else {
+        console.error('Login failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+
     return (
         <div>
       
@@ -24,6 +61,7 @@ const LoginPage = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
+                  value={loginData.email} onChange={handleChange}
                   required
                 />
               </div>
@@ -35,6 +73,7 @@ const LoginPage = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
+                  value={loginData.password} onChange={handleChange}
                   required
                 />
                 <label className="label">
@@ -54,7 +93,7 @@ const LoginPage = () => {
                 
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button type="button"  className="btn btn-primary" onClick={handleLogin}>Login</button>
               </div>
             </form>
           </div>
