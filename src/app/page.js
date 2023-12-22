@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import React from "react";
 
 const homePage = () => {
@@ -20,7 +21,7 @@ const homePage = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <Link href="/login" button className="btn btn-primary">Get Started</Link>
           </div>
         </div>
       </div> 
