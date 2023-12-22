@@ -1,4 +1,4 @@
-import { getApiUrl } from "./functions";
+import { cleanStartingSlash, getApiUrl } from "./functions";
 
 export const callFetcher = async (endpoint, method, formData, headers) => {
   const apiUrl = getApiUrl();

@@ -9,8 +9,3 @@ export function cleanStartingSlash(endpoint) {
     endpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
     return endpoint;
 }
-
-console.log(cleanStartingSlash('/user'))
-console.log(cleanStartingSlash('////user'))
-console.log(cleanStartingSlash('////user/1'))
-console.log(cleanStartingSlash('///user////1'))
