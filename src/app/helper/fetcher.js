@@ -1,8 +1,9 @@
-import { cleanStartingSlash, getApiUrl } from "./functions";
+import { cleanMultiSlash, cleanStartingSlash, getApiUrl } from "./functions";
 
-export const callFetcher = async (endpoint, method, formData, headers) => {
+export const callFetcher = async (endpoint, method, data, headers) => {
   const apiUrl = getApiUrl();
- 
+  
+  endpoint = cleanMultiSlash(endpoint);
   endpoint = cleanStartingSlash(endpoint);
 
     return await fetch(`${apiUrl}/${endpoint}`, {
@@ -11,6 +12,6 @@ export const callFetcher = async (endpoint, method, formData, headers) => {
           'Content-Type': 'application/json',
           ...headers,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });    
 }
