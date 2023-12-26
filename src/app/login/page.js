@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { callFetcher } from '../helper/fetcher';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+
 
 const LoginPage = () => {
   const router = useRouter();
@@ -15,10 +17,11 @@ const LoginPage = () => {
       const response = await callFetcher('/login', 'POST', { email, password });
 
       if (response.ok) {
-        const { accessToken } = await response.json();
+         const { accessToken } = await response.json();
         
-        localStorage.setItem('token', accessToken);
-
+        //localStorage.setItem('token', accessToken);
+        Cookies.set('token', accessToken);
+        
         router.push('/profile');
       } else {
         console.error('Authentication failed');

@@ -1,7 +1,29 @@
+'use client'
+import Cookies from "js-cookie";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
+
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Check if the user is authenticated (retrieve token from cookies)
+    const token = Cookies.get("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    // Clear the token from cookies
+    Cookies.remove("token");
+
+    // Redirect to the home page or any other desired page
+    router.push("/");
+  };
+  
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -54,9 +76,26 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href="/login" className="btn">
-            Login
-          </Link>
+        {isAuthenticated ? (
+            // If authenticated, show logout button
+            <>
+            <Link href="/profile" className="pr-4">
+              Profile
+            </Link>
+            <button onClick={handleLogout} className="btn">
+              Logout
+            </button>
+            </>
+          ) : (
+            // If not authenticated, show login button
+          <div>
+            
+            <Link href="/login" className="btn">
+              Login
+            </Link>
+          </div>
+          )}
+      
         </div>
       </div>
     </div>
