@@ -1,6 +1,8 @@
+'use client'
+import withAuth from '@/app/helper/withAuth';
 import React from 'react';
 
-const offers = () => {
+const offerPage = () => {
   return (
     <div>
       <div className="bg-white py-24 sm:py-32">
@@ -57,4 +59,4 @@ Personalized Medicine: AI helps tailor treatments to individual patients by cons
   );
 };
 
-export default offers;
+export default withAuth(offerPage);

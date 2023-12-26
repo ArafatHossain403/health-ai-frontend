@@ -1,5 +1,6 @@
-import Link from "next/link";
+'use client'
 import React from "react";
+import withAuth from "../helper/withAuth";
 
 const userPage = () => {
   return (
@@ -10,4 +11,4 @@ const userPage = () => {
   );
 };
 
-export default userPage;
+export default withAuth(userPage);

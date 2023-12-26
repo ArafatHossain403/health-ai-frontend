@@ -1,5 +1,6 @@
-import Link from "next/link";
+'use client'
 import React from "react";
+import withAuth from "../helper/withAuth";
 
 const ServicesPage = () => {
   return (
@@ -112,4 +113,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default withAuth(ServicesPage);
