@@ -4,55 +4,37 @@ import React, { useState } from 'react';
 import { callFetcher } from '../helper/fetcher';
 import { useRouter } from 'next/navigation';
 
-
-
 const LoginPage = () => {
-
   const router = useRouter();
-  const [loginData, setLoginData] = useState({
-    email: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    // Call the API to authenticate login
     try {
-      const response = await callFetcher('login', 'POST', loginData);
+      
+      const response = await callFetcher('/login', 'POST', { email, password });
+
       if (response.ok) {
-        console.log('Login successful!');
-        // Redirect to dashboard or other authenticated pages
-        router.push('/userDashboard');
+        const { accessToken } = await response.json();
+        
+        localStorage.setItem('token', accessToken);
+
+        router.push('/profile');
       } else {
-        console.error('Login failed:', response.statusText);
+        console.error('Authentication failed');
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error('Error during authentication', error);
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-
-    return (
-        <div>
-      
-     
-
+  return (
+    <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          
-         
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body">
-            <h1 className='text-center text-lg font-bold'>
-            Please Login
-          </h1>
+              <h1 className="text-center text-lg font-bold">Please Login</h1>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -61,7 +43,8 @@ const LoginPage = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
-                  value={loginData.email} onChange={handleChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -73,7 +56,8 @@ const LoginPage = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
-                  value={loginData.password} onChange={handleChange}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <label className="label">
@@ -85,22 +69,24 @@ const LoginPage = () => {
               <div>
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
-                  Do not Have an Account?
+                    Do not Have an Account?
                   </a>
-                  
                 </label>
-                <Link className="link link-accent" href="/signup">Signup</Link>
-                
+                <Link className="link link-accent" href="/signup">
+                  Signup
+                </Link>
               </div>
               <div className="form-control mt-6">
-                <button type="button"  className="btn btn-primary" onClick={handleLogin}>Login</button>
+                <button type="button" className="btn btn-primary" onClick={handleLogin}>
+                  Login
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default LoginPage;

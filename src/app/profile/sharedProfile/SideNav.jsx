@@ -14,7 +14,7 @@ const SideNav = () => {
             className="btn btn-primary drawer-button lg:hidden"
           >
             Open drawer
-          </label>
+          </label>   
         </div>
         <div className="drawer-side">
           <label
@@ -24,6 +24,9 @@ const SideNav = () => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
+            <li>
+              <Link href="/profile">Home</Link>
+            </li>
             <li>
               <a>Diagnosis</a>
             </li>
