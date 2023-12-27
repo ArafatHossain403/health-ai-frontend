@@ -16,7 +16,7 @@ export const callFetcher = async (endpoint, method, data, headers) => {
         'Authorization': `Bearer ${token}`,
         ...headers,
       },
-      body: JSON.stringify(data),
+      body: data ? JSON.stringify(data) : undefined,
     }); 
   
   const res_data = await response.json(); 
