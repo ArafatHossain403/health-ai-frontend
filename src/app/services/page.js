@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import withAuth from "../helper/withAuth";
+import WithAuth from "../helper/WithAuth";
 
 const ServicesPage = () => {
   return (
@@ -113,4 +113,4 @@ const ServicesPage = () => {
   );
 };
 
-export default withAuth(ServicesPage);
+export default WithAuth(ServicesPage);

@@ -3,8 +3,9 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { callFetcher } from '../helper/fetcher';
-import withoutAuth from '../helper/withoutAuth';
+import WithoutAuth from '../helper/WithoutAuth';
 import { useRouter } from 'next/navigation';
+import { swalError } from '../helper/functions';
 
 const SignupPage = () => {
 
@@ -15,6 +16,7 @@ const SignupPage = () => {
     password: '',
     mobile: '',
     address: '',
+    gender: '',
     birth_date: '',
   });
 
@@ -49,6 +51,7 @@ const SignupPage = () => {
           password: '',
           mobile: '',
           address: '',
+          gender: '',
           birth_date: '',
         });
 
@@ -64,7 +67,7 @@ const SignupPage = () => {
         });
       }
     } catch (error) {
-      console.error('Error submitting form', error);
+      swalError(error.message);
     }
   };
 
@@ -83,7 +86,7 @@ const SignupPage = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                  type="name"
+                  type="text"
                   name="name"
                   placeholder="name"
                   className="input input-bordered"
@@ -91,6 +94,23 @@ const SignupPage = () => {
                   onChange={handleChange}
                   required
                 />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Gender</span>
+                </label>
+                <select 
+                  name="gender" 
+                  id="gender"
+                  className="input input-bordered" 
+                  required={true}
+                  onChange={handleChange}
+                >
+                  <option value="">--Select--</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
               </div>
 
               <div className="form-control">
@@ -192,4 +212,4 @@ const SignupPage = () => {
   );
 };
 
-export default withoutAuth(SignupPage);
+export default WithoutAuth(SignupPage);

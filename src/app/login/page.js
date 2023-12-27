@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { callFetcher } from '../helper/fetcher';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
-import withoutAuth from '../helper/withoutAuth';
+import WithoutAuth from '../helper/WithoutAuth';
+import { swalError } from '../helper/functions';
 
 
 const LoginPage = () => {
@@ -14,7 +15,6 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      
       const response = await callFetcher('user/login', 'POST', { email, password });
 
       if (response.accessToken) {
@@ -24,11 +24,9 @@ const LoginPage = () => {
         Cookies.set('token', accessToken);
         
         window.location.href='/profile';
-      } else {
-        console.error('Authentication failed');
       }
     } catch (error) {
-      console.error('Error during authentication', error);
+      swalError(error.message);
     }
   };
 
@@ -93,4 +91,4 @@ const LoginPage = () => {
   );
 };
 
-export default withoutAuth(LoginPage);
+export default WithoutAuth(LoginPage);

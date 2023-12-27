@@ -1,5 +1,5 @@
 'use client'
-import withAuth from '@/app/helper/withAuth';
+import WithAuth from '@/app/helper/WithAuth';
 import React from 'react';
 
 const overviewPage = () => {
@@ -53,4 +53,4 @@ const overviewPage = () => {
   );
 };
 
-export default withAuth(overviewPage);
+export default WithAuth(overviewPage);
