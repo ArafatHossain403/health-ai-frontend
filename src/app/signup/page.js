@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { callFetcher } from '../helper/fetcher';
+import withoutAuth from '../helper/withoutAuth';
 
 const SignupPage = () => {
 
@@ -25,7 +26,7 @@ const SignupPage = () => {
     e.preventDefault();
 
     try {
-      const response = await callFetcher('user', 'post', formData);
+      const response = await callFetcher('user/signup', 'post', formData);
       if (response.ok) {
         // Show SweetAlert for success
         Swal.fire({
@@ -176,4 +177,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default withoutAuth(SignupPage);

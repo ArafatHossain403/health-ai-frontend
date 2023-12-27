@@ -10,17 +10,16 @@ const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if the user is authenticated (retrieve token from cookies)
+    
     const token = Cookies.get("token");
     setIsAuthenticated(!!token);
   }, []);
 
   const handleLogout = () => {
-    // Clear the token from cookies
+   
     Cookies.remove("token");
 
-    // Redirect to the home page or any other desired page
-    router.push("/");
+    window.location.href='/';
   };
   
 
@@ -77,7 +76,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
         {isAuthenticated ? (
-            // If authenticated, show logout button
+            
             <>
             <Link href="/profile" className="pr-4">
               Profile
@@ -87,7 +86,7 @@ const Navbar = () => {
             </button>
             </>
           ) : (
-            // If not authenticated, show login button
+          
           <div>
             
             <Link href="/login" className="btn">
