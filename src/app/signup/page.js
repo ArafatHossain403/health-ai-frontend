@@ -30,7 +30,7 @@ const SignupPage = () => {
 
     try {
       const response = await callFetcher('user/signup', 'post', formData);
-      if (response.ok) {
+      if (response.id) {
         // Show SweetAlert for success
         Swal.fire({
           title: 'Signup Successful!',
