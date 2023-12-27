@@ -6,12 +6,13 @@ export const callFetcher = async (endpoint, method, data, headers) => {
   endpoint = cleanMultiSlash(endpoint);
   endpoint = cleanStartingSlash(endpoint);
 
-    return await fetch(`${apiUrl}/${endpoint}`, {
-        method: method,
-        headers: {
-          'Content-Type': 'application/json',
-          ...headers,
-        },
-        body: JSON.stringify(data),
-      });    
+  const response = await fetch(`${apiUrl}/${endpoint}`, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers,
+      },
+      body: JSON.stringify(data),
+    });  
+  return await response.json();  
 }
