@@ -2,6 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 
 const SideNav = () => {
+
+  
   return (
     <div>
        <div className="drawer lg:drawer-open">
@@ -25,19 +27,13 @@ const SideNav = () => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <Link href="/profile">Home</Link>
+              <Link href="/user">Home</Link>
             </li>
             <li>
-              <a>Diagnosis</a>
+            <Link href="/user/diagnose">Diagnose</Link>
             </li>
             <li>
-              <a>Feedback</a>
-            </li>
-            <li>
-              <Link href="/profile/overview" >Overview</Link>
-            </li>
-            <li>
-              <Link href="/profile/offers">Our offerings</Link>
+              <Link href="/user/diagnosis-history">Diagnosis History</Link>
             </li>
           </ul>
         </div>

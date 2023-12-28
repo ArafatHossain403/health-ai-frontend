@@ -23,7 +23,7 @@ const LoginPage = () => {
         //localStorage.setItem('token', accessToken);
         Cookies.set('token', accessToken);
         
-        window.location.href='/profile';
+        window.location.href='/user';
       }
     } catch (error) {
       swalError(error.message);

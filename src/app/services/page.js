@@ -1,111 +1,21 @@
-'use client'
+import Link from "next/link";
 import React from "react";
-import WithAuth from "../helper/WithAuth";
 
-const ServicesPage = () => {
+const page = () => {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
-              <h1 className="text-center text-lg font-bold">
-                Diabetes Prediction Form
-              </h1>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Pregnancis</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Pregnancis"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Glucose</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Glucose"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Blood Pressure</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Blood Pressure"
-                  className="input input-bordered"
-                  required
-                />
-                <label className="label"></label>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Skin Thickness</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Skin Thickness"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Insulin</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="number"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">BMI</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="BMI"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Diabetes Pedigree Function</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="number"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Age</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Age"
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary">Submit</button>
-              </div>
-            </form>
+          <img
+            src="/doctor-pic-aboutus.jpg"
+            className="max-w-sm rounded-lg shadow-2xl"
+          />
+          <div>
+            <h1 className="text-4xl font-bold"> About Us!</h1>
+            <p className="py-6">
+            Health AI, the convergence of healthcare and artificial intelligence, stands as a beacon of transformative innovation. Its prowess lies in decoding complex medical data, empowering diagnostics, personalizing treatments,and revolutionizing patient care. With machine learning and predictive analytics at its core, Health AI is reshaping the future of medicine, fostering precision, accessibility, and ultimately, better health outcomes for all.
+            </p>
+            <Link href="/" button className="btn btn-primary">Home</Link>
           </div>
         </div>
       </div>
@@ -113,4 +23,4 @@ const ServicesPage = () => {
   );
 };
 
-export default WithAuth(ServicesPage);
+export default page;

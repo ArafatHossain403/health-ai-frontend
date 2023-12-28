@@ -40,10 +40,7 @@ const SignupPage = () => {
           icon: 'success',
           confirmButtonText: 'OK',
         });
-
-        // Optionally, you can redirect the user after successful signup
-        // router.push('/success'); // Import useRouter from 'next/router'
-
+        
         // Reset the form data
         setFormData({
           name: '',

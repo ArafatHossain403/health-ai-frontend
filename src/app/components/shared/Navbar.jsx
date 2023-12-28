@@ -49,13 +49,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="#">Home</a>
+                <Link href="/services">Services</Link>
               </li>
               <li>
-                <Link href="/services">Service</Link>
-              </li>
-              <li>
-                <Link href="/aboutus">About Us</Link>
+                <Link href="/about-us">About Us</Link>
               </li>
             </ul>
           </div>
@@ -64,13 +61,10 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/services">Services</Link>
             </li>
             <li>
-              <Link href="/services">Service</Link>
-            </li>
-            <li>
-              <Link href="/aboutus">About Us</Link>
+              <Link href="/about-us">About Us</Link>
             </li>
           </ul>
         </div>
@@ -78,7 +72,7 @@ const Navbar = () => {
         {isAuthenticated ? (
             
             <>
-            <Link href="/profile" className="pr-4">
+            <Link href="/user" className="pr-4">
               Profile
             </Link>
             <button onClick={handleLogout} className="btn">
@@ -92,7 +86,7 @@ const Navbar = () => {
               Login
             </Link>
             <Link href="/signup" className="btn">
-              Signup
+              Sign up
             </Link>
           </div>
           )}

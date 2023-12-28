@@ -12,7 +12,7 @@ const WithoutAuth = (WrappedComponent) => {
       const token = Cookies.get('token');
 
       if (token) {
-        router.push('/profile');
+        router.push('/user');
       }
     }, []);
 

@@ -21,7 +21,7 @@ export const callFetcher = async (endpoint, method, data, headers) => {
   
   const res_data = await response.json(); 
   
-  if (res_data.error) {
+  if (res_data.error || res_data.statusCode == 500) {
     throw new Error(res_data.message);
   }
 
