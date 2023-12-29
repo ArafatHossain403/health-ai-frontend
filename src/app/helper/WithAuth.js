@@ -18,7 +18,7 @@ const WithAuth = (WrappedComponent) => {
         }
         try {
           const userData = await callFetcher('user/profile', 'get');
-          console.log('userData: ', userData);
+          // console.log('userData: ', userData);
           if (!userData) {
             console.log('!userData');
             Cookies.remove('token');

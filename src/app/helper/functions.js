@@ -29,3 +29,16 @@ export function swalError(message, title = 'Error!') {
         confirmButtonText: 'OK',
     });
 }
+
+export function calculateAgeInYears(birth_date) {
+  const days =
+    (new Date().getTime() - birth_date.getTime()) / 1000 / 60 / 60 / 24;
+  const years = (days / 365).toFixed(0);
+  return Number(years);
+}
+
+export function calculateBMI(height_cm, weight_kg) {
+  const height_meter = height_cm / 100;
+  const bmi = weight_kg / height_meter ** 2;
+  return Number(bmi.toFixed(1));
+}

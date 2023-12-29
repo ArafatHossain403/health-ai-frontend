@@ -1,14 +1,22 @@
 'use client'
 import React from "react";
 import WithAuth from "../helper/WithAuth";
+import UserData from "./sharedProfile/UserData";
+import Link from "next/link";
 
-const ProfilePage = ({userData}) => {
+const HomePage = ({userData}) => {
   return (
-    <div className="card card-body">
-      <h2>Hello {userData?.name}</h2>
-      
+    <div className="">
+        <UserData userData={userData}></UserData>
+        <br></br><br></br>
+        <div className="text-center">
+          <Link className="btn btn-primary" href="/user/diagnose">Diagnose</Link>
+          &nbsp;&nbsp;
+          <Link className="btn" href="/user/diagnosis-history">See History</Link>
+        </div>
+        
     </div>
   );
 };
 
-export default WithAuth(ProfilePage);
+export default WithAuth(HomePage);
