@@ -7,7 +7,7 @@ const UserData = ({userData}) => {
 
     return (
         <div>
-            <div className="stats shadow">
+            <div className="stats shadow ">
                 <div className="stat">
                     
                     <div className="stat-title">Name</div>

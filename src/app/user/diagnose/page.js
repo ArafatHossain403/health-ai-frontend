@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import WithAuth from "../../helper/WithAuth";
 import UserData from "../sharedProfile/UserData";
 import PredictionForm from "../sharedProfile/PredictionForm";
+import DiagnosisResult from "../sharedProfile/DiagnosisResult";
 
 const DiagnosePage = ({userData}) => {
   const [diagnosisResult, setDiagnosisResult] = useState(null);
@@ -12,16 +13,11 @@ const DiagnosePage = ({userData}) => {
       {!diagnosisResult ? <PredictionForm 
         setDiagnosisResult={setDiagnosisResult} 
         userData={userData}/> : 
-        <>
-          <div>
-            <pre>
-              <code>
-                {JSON.stringify(diagnosisResult)}
-              </code>
-            </pre>
-          </div>
-        </>
+        <DiagnosisResult diagnosisResult={diagnosisResult} 
+        setDiagnosisResult={setDiagnosisResult}
+         userData={userData} />
       }
+
     </div>
   );
 };
