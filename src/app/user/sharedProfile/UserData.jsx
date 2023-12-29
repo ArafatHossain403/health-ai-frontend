@@ -55,7 +55,10 @@ const UserData = ({userData}) => {
                     </div>
                     <div className="stat-title font-bold">
                         Age: <span className="stat-value text-info text-sm">
-                            {calculateAgeInYears(new Date(userData?.birth_date))}
+                            {userData?.birth_date 
+                                ? calculateAgeInYears(new Date(userData?.birth_date))
+                                : 'N/A'
+                            }
                             </span>
                     </div>
                 </div>

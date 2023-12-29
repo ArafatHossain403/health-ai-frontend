@@ -10,6 +10,7 @@ const DiagnosePage = ({userData}) => {
   return (
     <div>
       <UserData userData={userData}/>
+      <br></br><br></br>
       {!diagnosisResult ? <PredictionForm 
         setDiagnosisResult={setDiagnosisResult} 
         userData={userData}/> : 

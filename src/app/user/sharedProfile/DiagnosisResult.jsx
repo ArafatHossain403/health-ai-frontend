@@ -25,46 +25,63 @@ const DiagnosisResult = ({ setDiagnosisResult, diagnosisResult, userData}) => {
                   </tr> 
                   )}
                   <tr>
-                    <td>glucose: </td>
+                    <td>Glucose (mg/dL): </td>
                     <td>{diagnosisResult?.glucose}</td>
                   </tr> 
                   <tr>
-                    <td>Blood Pressure: </td>
-                    <td>{diagnosisResult?.bp}</td>
+                    <td>Systolic Blood Pressure: </td>
+                    <td>{diagnosisResult?.s_bp}</td>
                   </tr> 
                   <tr>
-                    <td>Tkin Thickness: </td>
+                    <td>Diastolic Blood Pressure: </td>
+                    <td>{diagnosisResult?.d_bp}</td>
+                  </tr>
+                  <tr>
+                    <td>Mean Blood Pressure: </td>
+                    <td>{diagnosisResult?.mbp}</td>
+                  </tr>
+                  <tr>
+                    <td>Skin Thickness (mm): </td>
                     <td>{diagnosisResult?.skin_thickness}</td>
                   </tr> 
                   <tr>
-                    <td>Insulin: </td>
+                    <td>Insulin (µU/mL): </td>
                     <td>{diagnosisResult?.insulin}</td>
                   </tr> 
                   <tr>
-                    <td>Height: </td>
+                    <td>Height (cm): </td>
                     <td>{diagnosisResult?.height}</td>
                   </tr>
                   <tr>
-                    <td>Weight: </td>
+                    <td>Weight (kg): </td>
                     <td>{diagnosisResult?.weight}</td>
                   </tr>
                   <tr>
-                    <td>Age: </td>
-                    <td>{diagnosisResult?.age}</td>
-                  </tr>
-                  <tr>
-                    <td>Outcome: </td>
-                    <td>{diagnosisResult?.outcome}</td>
+                    <td>Result: </td>
+                    <td> Diabetes {diagnosisResult?.outcome == 1
+                    ? <span className="text-red-600 font-bold">Positive</span>
+                    : <span className="text-green-600 font-bold">Negative</span>
+                  }</td>
                   </tr>
                  
                  
               </tbody>
             </table>
+            <br></br>
             {
-              diagnosisResult?.outcome == 0 ? <div> Your are Diabetes is Negative </div>:  <div> Your are Diabetes is Positive <small>Please contact your doctor </small></div>
+              diagnosisResult?.outcome == 1 
+              ? <div>
+                  <span className='font-bold'>Note: </span>
+                  <span> Your Should Consult Your Doctor </span>
+                </div>: ''
             }
-            <div className="form-control mt-6">
-          <button onClick={()=> setDiagnosisResult(null)} className="btn btn-primary"> <Link href="/user/diagnose">Check Again</Link></button>
+        <div className='flex gap-3'>
+          <div className="form-control mt-3">
+            <button onClick={()=> setDiagnosisResult(null)} className="btn btn-primary"> <Link href="/user/diagnose">Check Again</Link></button>
+          </div>
+          <div className="form-control mt-3">
+            <button onClick={()=> alert('in progress...')} className="btn btn-info">Send To Mail</button>
+          </div>
         </div>
           </div>
         </div>

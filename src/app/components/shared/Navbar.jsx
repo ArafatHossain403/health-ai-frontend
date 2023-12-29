@@ -19,7 +19,7 @@ const Navbar = () => {
    
     Cookies.remove("token");
 
-    window.location.href='/';
+    window.location.href='/login';
   };
   
 
