@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 bg-base-300 text-base-content">
       <aside>
-      <img src="/ai-logo-svg.svg" alt="Girl in a jacket" width="50" height="60"></img>
+      <img src="/ai-jpg.jpg" alt="Girl in a jacket" width="50" height="60"></img>
     <p>Transforming healthcare through<br/>intelligent innovation.</p>
   </aside> 
 
