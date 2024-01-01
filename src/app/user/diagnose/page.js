@@ -8,7 +8,7 @@ import DiagnosisResult from "../sharedProfile/DiagnosisResult";
 const DiagnosePage = ({userData}) => {
   const [diagnosisResult, setDiagnosisResult] = useState(null);
   return (
-    <div>
+    <div class="items-center justify-center">
       <UserData userData={userData}/>
       <br></br><br></br>
       {!diagnosisResult ? <PredictionForm 

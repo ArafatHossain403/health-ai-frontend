@@ -30,6 +30,15 @@ export function swalError(message, title = 'Error!') {
     });
 }
 
+export function swalSuccess(message, title = 'Successful') {
+  Swal.fire({
+      title: title,
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK',
+  });
+}
+
 export function calculateAgeInYears(birth_date) {
   const days =
     (new Date().getTime() - birth_date.getTime()) / 1000 / 60 / 60 / 24;

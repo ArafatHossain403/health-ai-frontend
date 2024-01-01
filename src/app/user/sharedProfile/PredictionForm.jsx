@@ -1,8 +1,6 @@
 import { callFetcher } from '@/app/helper/fetcher';
 import { swalError } from '@/app/helper/functions';
-import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
 
 
 const PredictionForm = ({setDiagnosisResult, userData}) => {
