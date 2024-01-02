@@ -24,7 +24,8 @@ const DiagnosisHistoryPage = ({userData}) => {
       }, []);
 
     return (
-        <div>
+        <div className="mx-auto">
+         
             <DiagnosisHistoryChart histories={histories} userData={userData}/>
 
             <DiagnosisHistoryTable histories={histories} userData={userData}/>

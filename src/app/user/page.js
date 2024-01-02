@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const HomePage = ({userData}) => {
   return (
-    <div className="">
+    <div className=" mx-auto">
         <UserData userData={userData}></UserData>
         <br></br><br></br>
         <div className="text-center">

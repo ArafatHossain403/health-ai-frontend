@@ -10,7 +10,7 @@ const DiagnosisHistoryTable = ({ histories, userData }) => {
   };
   return (
     <div className="card card-body">
-      <h1 className="text-center font-bold text-md">History Table</h1>
+      <h1 className="text-center font-bold text-lg">History Table</h1>
 
       <div className="card card-body">
         <div className="overflow-x-auto">
@@ -64,10 +64,6 @@ const DiagnosisHistoryTable = ({ histories, userData }) => {
           <p className="py-4">
             Your Diagnosis History In Details
           </p>
-          {userData?.gender == "female" && (
-                    <div> <p> Pregnancies: {selectedHistory?.pregnancies
-                    }</p></div>
-                  )}
                   <table className="table">
               {/* head */}
               <thead>
