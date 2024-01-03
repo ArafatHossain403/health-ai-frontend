@@ -19,18 +19,23 @@ const DiagnosisHistoryTable = ({ histories, userData }) => {
             <thead>
               <tr>
                 {userData?.userData?.gender == "female" && <th>Pregnancies</th>}
+                <th>S.N</th>
+                {userData?.gender == "female" && (
+                  <th>Pregnancies</th>
+                )}
                 <th>Glucose</th>
-                <th>Blood Pressure</th>
+                <th>Mean Blood Pressure</th>
                 <th>Skin Thickness</th>
                 <th>Insulin</th>
                 <th>BMI</th>
                 <th>Result</th>
-                <th>View Details</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {histories.map((history) => (
+              {histories.map((history, idx) => (
                 <tr key={history.id}>
+                  <td>{idx + 1}</td>
                   {userData?.gender == "female" && (
                     <td>{history?.pregnancies}</td>
                   )}
@@ -39,10 +44,13 @@ const DiagnosisHistoryTable = ({ histories, userData }) => {
                   <td>{history?.skin_thickness}</td>
                   <td>{history?.insulin}</td>
                   <td>{history?.bmi}</td>
-                  <td>{history?.outcome == 1
-                    ? <span className="text-red-600 font-bold">Positive</span>
-                    : <span className="text-green-600 font-bold">Negative</span>
-                  }</td>
+                  <td>
+                    {history?.outcome == 1 ? (
+                      <span className="text-red-600 font-bold">Positive</span>
+                    ) : (
+                      <span className="text-green-600 font-bold">Negative</span>
+                    )}
+                  </td>
                   <td>
                     <button
                       className="btn btn-neutral"
@@ -57,83 +65,93 @@ const DiagnosisHistoryTable = ({ histories, userData }) => {
           </table>
         </div>
       </div>
-{/* modal start here */}
+      
+      {/* modal start here */}
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">Hello {userData?.name}</h3>
-          <p className="py-4">
-            Your Diagnosis History In Details
-          </p>
-                  <table className="table">
-              {/* head */}
-              <thead>
+          <p className="py-4">Your Diagnosis Data In Details</p>
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userData?.gender == "female" && (
                 <tr>
-                  <th>Features</th>
-                  <th>Values</th>
+                  <td>Pregnancies: </td>
+                  <td>{selectedHistory?.pregnancies}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {userData?.gender == "female" && (
-                     <tr>
-                    <td>Pregnancies: </td>
-                    <td>{selectedHistory?.pregnancies}</td>
-                  </tr> 
+              )}
+              <tr>
+                <td>Glucose (mg/dL): </td>
+                <td>{selectedHistory?.glucose}</td>
+              </tr>
+              <tr>
+                <td>Systolic Blood Pressure: </td>
+                <td>{selectedHistory?.s_bp}</td>
+              </tr>
+              <tr>
+                <td>Diastolic Blood Pressure: </td>
+                <td>{selectedHistory?.d_bp}</td>
+              </tr>
+              <tr>
+                <td>Mean Blood Pressure: </td>
+                <td>{selectedHistory?.mbp}</td>
+              </tr>
+              <tr>
+                <td>Skin Thickness (mm): </td>
+                <td>{selectedHistory?.skin_thickness}</td>
+              </tr>
+              <tr>
+                <td>Insulin (µU/mL): </td>
+                <td>{selectedHistory?.insulin}</td>
+              </tr>
+              <tr>
+                <td>Height (cm): </td>
+                <td>{selectedHistory?.height}</td>
+              </tr>
+              <tr>
+                <td>Weight (kg): </td>
+                <td>{selectedHistory?.weight}</td>
+              </tr>
+              <tr>
+                <td>Body Mass Index (BMI): </td>
+                <td>{selectedHistory?.bmi}</td>
+              </tr>
+              <tr>
+                <td>Result: </td>
+                <td>
+                  {" "}
+                  Diabetes{" "}
+                  {selectedHistory?.outcome == 1 ? (
+                    <span className="text-red-600 font-bold">Positive</span>
+                  ) : (
+                    <span className="text-green-600 font-bold">Negative</span>
                   )}
-                  <tr>
-                    <td>Glucose (mg/dL): </td>
-                    <td>{selectedHistory?.glucose}</td>
-                  </tr> 
-                  <tr>
-                    <td>Systolic Blood Pressure: </td>
-                    <td>{selectedHistory?.s_bp}</td>
-                  </tr> 
-                  <tr>
-                    <td>Diastolic Blood Pressure: </td>
-                    <td>{selectedHistory?.d_bp}</td>
-                  </tr>
-                  <tr>
-                    <td>Mean Blood Pressure: </td>
-                    <td>{selectedHistory?.mbp}</td>
-                  </tr>
-                  <tr>
-                    <td>Skin Thickness (mm): </td>
-                    <td>{selectedHistory?.skin_thickness}</td>
-                  </tr> 
-                  <tr>
-                    <td>Insulin (µU/mL): </td>
-                    <td>{selectedHistory?.insulin}</td>
-                  </tr> 
-                  <tr>
-                    <td>Height (cm): </td>
-                    <td>{selectedHistory?.height}</td>
-                  </tr>
-                  <tr>
-                    <td>Weight (kg): </td>
-                    <td>{selectedHistory?.weight}</td>
-                  </tr>
-                  <tr>
-                    <td>Body Mass Index (kg): </td>
-                    <td>{selectedHistory?.bmi}</td>
-                  </tr>
-                  <tr>
-                    <td>Result: </td>
-                    <td> Diabetes {selectedHistory?.outcome == 1
-                    ? <span className="text-red-600 font-bold">Positive</span>
-                    : <span className="text-green-600 font-bold">Negative</span>
-                  }</td>
-                  </tr>
-                  <tr>
-                    <td>Created At: </td>
-                    <td><span className="stat-value text-info text-sm">
-                            {moment(selectedHistory?.created_at).format('ll')} </span></td>
-                  </tr>
-                 
-                 
-              </tbody>
-            </table>
+                </td>
+              </tr>
+              <tr>
+                <td>Created At: </td>
+                <td>
+                  <span className="stat-value text-info text-sm">
+                    {moment(selectedHistory?.created_at).format("ll")}{" "}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn" onClick={() => document.getElementById("my_modal_1").close()}>Close</button>
+              <button
+                className="btn"
+                onClick={() => document.getElementById("my_modal_1").close()}
+              >
+                Close
+              </button>
             </form>
           </div>
         </div>

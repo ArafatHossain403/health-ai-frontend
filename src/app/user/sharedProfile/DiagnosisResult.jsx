@@ -81,6 +81,10 @@ const DiagnosisResult = ({ setDiagnosisResult, diagnosisResult, userData }) => {
                 <td>{diagnosisResult?.weight}</td>
               </tr>
               <tr>
+                <td>BMI: </td>
+                <td>{diagnosisResult?.bmi}</td>
+              </tr>
+              <tr>
                 <td>Result: </td>
                 <td>
                   {" "}
@@ -132,7 +136,7 @@ const DiagnosisResult = ({ setDiagnosisResult, diagnosisResult, userData }) => {
         <div className="modal-box">
           <div className="form-control">
             <label className="label">
-              <span className="label-text"> Enter Your Email</span>
+              <span className="label-text"> Enter Destination Email</span>
             </label>
             <input
               type="email"
